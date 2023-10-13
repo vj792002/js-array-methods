@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>react js array</title>
+</head>
+
+<body>
+    <script>
+        // map:
+        // 1.Given an array of temperatures in Celsius, create a new array with temperatures converted to Fahrenheit.
+        let celsuis = [30, 35, 40, 45, 50];
+        let Fahrenheit = celsuis.map(function (value) {
+            var far = (value * 9 / 5) + 32;
+            return far;
+        })
+        console.log(Fahrenheit);
+
+        // 2.Create a program to capitalize the first letter of each word in an array of strings.
+
+        let arr1 = ["apple", "banana", "grapes"];
+        let arr2 = arr1.map(function (value) {
+            var arr3 = value[0].toUpperCase()
+            var arr4 = value.slice(1);
+            return arr3 + arr4;
+        })
+        console.log(arr2);
+
+        // 3.Given an array of strings, create a new array that contains the lengths of each string.
+        let str = ["giraffee", "tiger", "lion", "elephant"]
+        let length = str.map(function (value) {
+            var len = value.length;
+            return len;
+        })
+        console.log(length);
+
+        // Filter:
+        // 1.Filter an array of numbers to find prime number.
+        let numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+        let primeNumbers = numbers.filter(function isPrime(value) {
+            if (value <= 1) {
+                return false;
+            }
+            for (let divisor = 2; divisor <= Math.sqrt(value); divisor++) {
+                if (value % divisor === 0) {
+                    return false;
+                }
+            }
+            return true;
+        })
+        console.log(primeNumbers);
+
+        // 2.Given an array of objects representing books, filter the books published after the year 2000
+        let books = [{
+            title: "The discipline",
+            year: 2014
+        },
+        {
+            title: "ponniyin slevan",
+            year: 1992
+        },
+        {
+            title: "Madhuraiyai Meeta Sethupathy",
+            year: 2000
+        },
+        {
+            title: "The monster",
+            year: 1998
+        },
+        {
+            title: "Thiyaga Bhoomi",
+            year: 2017
+        },
+        {
+            title: "Vengaiyin Maindhan",
+            year: 2013
+        },
+        {
+            title: "Mohini Theevu",
+            year: 2002
+        }
+        ];
+        let specialBooks = books.filter(function (value) {
+            if (value.year > 2000) {
+                return true;
+            }
+        })
+        console.log(specialBooks);
+
+        // 3.Filter an array of strings to find palindromes.
+        let name = ["mom", "dad", "vijay"]
+        let palindrome = name.filter(function (value) {
+            let reverse = value.split('').reverse().join('');
+            if (value == reverse) {
+                return true;
+            }
+        })
+        console.log(palindrome);
+
+        // Reduce:
+        // 1.Given an array of words, find the longest word.
+        let words = ["elephant", "giraffe", "hippopotamus", "zebra", "lion"];
+        let result = words.reduce(function longestWord(value1, value2) {
+            if (value1.length > value2.length) {
+                return value1;
+            } else {
+                return value2;
+            }
+        })
+        console.log(result);
+
+        // 2.Calculate the average of a list of test scores.
+
+
+
+
+
+
+
+
+
+        // 3.Find the maximum value in an array of numbers.
+
+
+
+
+
+
+
+
+        // find:
+        // 1.Given an array of objects representing books, find the book with the highest rating.
+        var book = [{
+            title: "The discipline",
+            rating: 2.5
+        },
+        {
+            title: "ponniyin slevan",
+            rating: 8
+        },
+        {
+            title: "Madhuraiyai Meeta Sethupathy",
+            rating: 4
+        },
+        {
+            title: "The monster",
+            rating: 6
+        }
+        ];
+        let ratedBook = book.find(function (value) {
+            if (value.rating >= 4) {
+                return true;
+            }
+        })
+        console.log(ratedBook);
+
+        //2.Find the first occurrence of a word containing 'apple' in an array of strings.
+        let array1 = ["I like banana", "She ate an apples", "Oranges are good too", "The apple pie is delicious"];
+
+        let found = array1.find((value) => value.includes("apple"));
+
+        console.log(found);
+
+        // 3.Find the first student with a GPA above 3.5 in an array of student objects.
+        var mark = [{
+            name: "vijay",
+            gpa: 2.5
+        },
+        {
+            name: "antony",
+            gpa: 3.5
+        },
+        {
+            name: "suriya",
+            gpa: 4
+        },
+        {
+            name: "kamal",
+            gpa: 5.5
+        }
+        ];
+        let highGpa = mark.find(function (value) {
+            if (value.gpa >= 4) {
+                return true;
+            }
+        })
+        console.log(highGpa);
+
+        // Includes,some&every:
+        // 1.Check if all users in an array are adults (age 18 or older) using every().
+        let age = [18, 18, 18, 18, 18];
+        let adultAge = age.every(function (value) {
+            return (value >= 18);
+        })
+        console.log(adultAge);
+
+        //2.Determine if any strings in an array contain more than 10 characters using some().
+        var word = ['vijay', 'vijay', 'sivachandran'];
+        var tenname = word.some(function (value) {
+            return (value.length > 10);
+        })
+        console.log(tenname)
+
+        //3.Determine if an array of books includes a book with the title "Harry Potter" using the includes().
+
+        let bookname = ["history of violence", 'Think and Grow', 'Positivity', 'Harry Potter', 'Best friend']
+        console.log(bookname.includes('Harry Potter'));
+        
+    </script>
+</body>
+
+</html>
